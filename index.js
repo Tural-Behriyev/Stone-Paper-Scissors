@@ -1,25 +1,60 @@
-//massiv anlayisi
-const siyahi=["kagiz.png","das.png","scissor.png"]
+// massive concept
+const list=["paper.png","stone.png","scissors.png"]
 
-//Dom doucumet object
+//Dom doucument object
 
-const kagiz=document.getElementById('kagiz')
-const das=document.getElementById('das')
-const qayci=document.getElementById('qayci')
+const paper=document.getElementById('paper')
+const stone=document.getElementById('stone')
+const scissors=document.getElementById('scissors')
 
-const komputerinsecimi=document.getElementById('komputer-secim')
-const neticeniyaz=document.getElementById('netice')
+const computerselection=document.getElementById('computer-selection')
+const writetheresult=document.getElementById('result')
 
-//klikleme hadisesxi burada qeyde alinir
-kagiz.onclick=secimiele
-das.onclick=secimiele
-qayci.onclick=secimiele
+//the click event is recorded here
+paper.onclick=thechoiceisso
+stone.onclick=thechoiceisso
+scissors.onclick=thechoiceisso
 
 
-function secimiele() {
+function thechoiceisso() {
+    const computer =randomselection()
+    const mychoice =this.dataset.id
 
-}
 
-function randomsecim() {
+
+    if(mychoice ==0 && computer ==0){
+        result='Try again'
+    }
+    else if(mychoice ==1 && computer ==1){
+        result ='Try again'
+     }
+     else if(mychoice ==2 && computer ==2){
+        result ='Try again'
+     }
+    else if(mychoice ==0 && computer ==1){
+       result ='You win,congratulations'
+    }
+    else if(mychoice ==0 && computer ==2){
+        result ='You lose,sorry'
+     }
+     else if(mychoice ==1 && computer ==0){
+        result ='You win,congratulations'
+     }
+     else if(mychoice ==1 && computer ==2){
+        result ='You win,congratulations'
+     }
+     else if(mychoice ==2 && computer ==0){
+        result ='You lose,sorry'
+     }
+     else if(mychoice ==2 && computer ==1){
+        result ='You win,congratulations'
+     }
+     
     
+    writetheresult.innerHTML =result
+}
+function randomselection() {
+    const number = Math.round(Math.random()*2)
+    computerselection.src =`img/${list[number]}`
+    return number
 }
